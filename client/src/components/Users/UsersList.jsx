@@ -1,18 +1,8 @@
 import React from 'react';
-import { gql } from 'apollo-boost';
 import { useQuery } from '@apollo/react-hooks';
 
+import { GET_USERS } from '../../graphql/queries';
 import { UserCard } from './UserCard';
-
-const GET_USERS = gql`
-	{
-		getUsers {
-			username
-			fullname
-			email
-		}
-	}
-`;
 
 export const UsersList = () => {
 	const { loading, error, data } = useQuery(GET_USERS);
@@ -23,6 +13,7 @@ export const UsersList = () => {
 	return (
 		<div className="row">
 			<div className="col-md-6 offset-md-3">
+				{data.getUsers.length === 0 && <h1>Start adding users</h1>}
 				{data.getUsers.map(({ username, fullname, email }, i) => (
 					<UserCard email={email} username={username} fullname={fullname} key={i} />
 				))}

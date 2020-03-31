@@ -1,16 +1,8 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/react-hooks';
-import { gql } from 'apollo-boost';
 
+import { CREATE_USER } from '../../graphql/mutations';
 import { Input } from './InputForm';
-
-const CREATE_USER = gql`
-	mutation CreateUser($username: String!, $fullname: String!, $email: String!) {
-		createUser(username: $username, fullname: $fullname, email: $email) {
-			username
-		}
-	}
-`;
 
 export const Form = () => {
 	const [formUser, setFormUser] = useState({
