@@ -1,0 +1,30 @@
+{
+	"name": "graphql-yoga",
+	"version": "0.0.1",
+	"main": "index.js",
+	"repository": "https://github.com/santychuy/graphql-server.git",
+	"author": "Santiago Carrasco <jsanticc@hotmail.com>",
+	"license": "MIT",
+	"scripts": {
+		"dev": "nodemon src/index.js",
+		"build": "babel src -d dist",
+		"start": "cross-env NODE_ENV=production node dist/index.js",
+		"update": "ncu -u && yarn",
+		"clean": "rimraf dist"
+	},
+	"dependencies": {
+		"cross-env": "^7.0.2",
+		"dotenv": "^8.2.0",
+		"graphql-yoga": "^1.18.3",
+		"mongoose": "^5.9.7",
+		"rimraf": "^3.0.2"
+	},
+	"devDependencies": {
+		"@babel/cli": "^7.8.4",
+		"@babel/core": "^7.9.0",
+		"@babel/node": "^7.8.7",
+		"@babel/preset-env": "^7.9.0",
+		"nodemon": "^2.0.2",
+		"npm-check-updates": "^4.1.0"
+	}
+}
